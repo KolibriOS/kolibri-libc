@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) KolibriOS team 2024. All rights reserved.
+ * Distributed under terms of the GNU General Public License
+ */
+
 #include <sys/ksys.h>
 
 #include "string/string.c"
@@ -10,6 +15,7 @@ __asm__(
 );
 
 ksys_dll_t EXPORTS[] = {
+    /* string.h */
     EXPORT(memcpy),
     EXPORT(memmove),
     EXPORT(memset),
