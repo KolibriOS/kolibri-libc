@@ -18,7 +18,7 @@ typedef __SIZE_TYPE__ uintptr_t;
 #endif
 
 #ifdef _BUILD_LIBC
-#define DLLAPI
+#define DLLAPI static
 #else
 #define DLLAPI __attribute__((dllimport))
 #endif
