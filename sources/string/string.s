@@ -1,6 +1,9 @@
-/* Copyright (C) 1995 DJ Delorie, see COPYING.DJ for details */
-
-.align 4
+/* 
+ * Copyright (C) 1995 DJ Delorie, see COPYING.DJ for details
+ *
+ * Copyright (C) KolibriOS team 2024. All rights reserved.
+ * Distributed under terms of the GNU General Public License
+ */
 
 memmove:
     pushl   %ebp
@@ -31,7 +34,6 @@ memmove.L2:
     ret
 
 
-.align 4
 memset:
     pushl   %ebp
     movl    %esp,%ebp
@@ -58,10 +60,10 @@ memset:
 
     # Handle any cruft necessary to get %edi long-aligned.
 memset.L1:  stosb
-    decl   %ecx
+    decl    %ecx
 memset.L2:
     testl   $3,%edi
-    jnz	memset.L1
+    jnz	    memset.L1
 
     # Now slam out all of the longs.
     movl    %ecx,%edx

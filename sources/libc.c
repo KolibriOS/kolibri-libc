@@ -3,6 +3,7 @@
  * Distributed under terms of the GNU General Public License
  */
 
+#include <setjmp.h>
 #include <sys/ksys.h>
 
 #include "string/string.c"
@@ -11,10 +12,14 @@
 #define EXPORT(sym) {#sym, &sym}
 
 __asm__(
+    ".include \"setjmp.s\"\n\t"
     ".include \"string/string.s\"\n\t"
 );
 
 ksys_dll_t EXPORTS[] = {
+    /* setjmp.h */
+    EXPORT(setjmp),
+    EXPORT(longjmp),
     /* string.h */
     EXPORT(memcpy),
     EXPORT(memmove),
