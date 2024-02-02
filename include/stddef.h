@@ -14,7 +14,7 @@ typedef __PTRDIFF_TYPE__ intptr_t;
 typedef __SIZE_TYPE__ uintptr_t;
 
 #ifndef NULL
-#define NULL ((void*)0)
+#define NULL ((void *)0)
 #endif
 
 #ifdef _BUILD_LIBC
@@ -23,15 +23,15 @@ typedef __SIZE_TYPE__ uintptr_t;
 #define DLLAPI __attribute__((dllimport))
 #endif
 
-#define offsetof(type, field) ((size_t) & ((type*)0)->field)
+#define offsetof(type, field) ((size_t) & ((type *)0)->field)
 
 /* Macros for calling conventions */
-#ifndef __stdcall
-#define __stdcall __attribute__((stdcall))
-#endif
-
 #ifndef __cdecl
 #define __cdecl __attribute__((cdecl))
+#endif
+
+#ifndef __stdcall
+#define __stdcall __attribute__((stdcall))
 #endif
 
 #ifndef __fastcall
