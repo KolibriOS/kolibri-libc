@@ -9,12 +9,13 @@
 #include <stddef.h>
 
 #ifdef _BUILD_LIBC
-extern int __errno;
+static int __errno;
 #define errno __errno
 #else
 extern int *__errno;
-#define errno *__errno
+#define errno (*__errno)
 #endif
+
 
 #define EDOM   50 // Numerical argument out of domain
 #define ERANGE 51 // Result too large

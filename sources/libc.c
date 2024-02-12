@@ -3,12 +3,17 @@
  * Distributed under terms of the GNU General Public License
  */
 
+static int __errno;
+
 #include <setjmp.h>
 #include <stddef.h>
 #include <sys/ksys.h>
 
 #include "ctype.c"
 #include "string/string.c"
+#include "stdlib/strtod.c"
+#include "stdlib/strtol.c"
+#include "stdlib/strtoul.c"
 
 #undef EXPORT
 #define EXPORT(sym) {#sym, &sym}
@@ -20,6 +25,8 @@ __asm__(
 );
 
 ksys_dll_t EXPORTS[] = {
+    /* errno.h */
+    EXPORT(__errno),
     /* ctype.h */
     EXPORT(isalnum),
     EXPORT(isalpha),
@@ -38,6 +45,10 @@ ksys_dll_t EXPORTS[] = {
     /* setjmp.h */
     EXPORT(setjmp),
     EXPORT(longjmp),
+    /* stdlib.h */
+    EXPORT(strtod),
+    EXPORT(strtol),
+    EXPORT(strtoul),
     /* string.h */
     EXPORT(memcpy),
     EXPORT(memmove),

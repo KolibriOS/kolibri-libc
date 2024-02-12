@@ -159,9 +159,9 @@
 | `atof()` | Converts the string pointed to, by the argument str to a floating-point number (type double). | Not implemented |
 | `atoi()` | Converts the string pointed to, by the argument str to an integer (type int). | Not implemented |
 | `atol()` | Converts the string pointed to, by the argument str to a long integer (type long int). | Not implemented |
-| `strtod()` | Converts the string pointed to, by the argument str to a floating-point number (type double). | Not implemented |
-| `strtol()` | Converts the string pointed to, by the argument str to a long integer (type long int). | Not implemented |
-| `strtoul()` | Converts the string pointed to, by the argument str to an unsigned long integer (type unsigned long int). | Not implemented |
+| `strtod()` | Converts the string pointed to, by the argument str to a floating-point number (type double). | Yes |
+| `strtol()` | Converts the string pointed to, by the argument str to a long integer (type long int). | Yes |
+| `strtoul()` | Converts the string pointed to, by the argument str to an unsigned long integer (type unsigned long int). | Yes |
 | `rand()` | Returns a pseudo-random number in the range of 0 to `RAND_MAX`. | Not implemented |
 | `srand()` | This function seeds the random number generator used by the function rand. | Not implemented |
 | `calloc()` | Allocates the requested memory and returns a pointer to it. | Not implemented |
