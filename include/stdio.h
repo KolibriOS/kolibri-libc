@@ -28,16 +28,14 @@
 #define SEEK_CUR 1
 #define SEEK_END 2
 
+/* TODO: To be determined during implementation */
 typedef struct FILE FILE;
 typedef long fpos_t;
 
-extern FILE __stdin;
-extern FILE __stdout;
-extern FILE __stderr;
-
-#define stdin  (&__stdin)
-#define stdout (&__stdout)
-#define stderr (&__stderr)
+/* TODO: To be determined during implementation */
+#define stdin
+#define stdout
+#define stderr 
 
 /* Operations on files */
 int remove(const char *filename);
