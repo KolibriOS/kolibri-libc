@@ -6,6 +6,7 @@
 #include <setjmp.h>
 #include <sys/ksys.h>
 
+#include "ctype.c"
 #include "string/string.c"
 
 #undef EXPORT
@@ -17,6 +18,21 @@ __asm__(
 );
 
 ksys_dll_t EXPORTS[] = {
+    /* ctype.h */
+    EXPORT(isalnum),
+    EXPORT(isalpha),
+    EXPORT(isblank),
+    EXPORT(iscntrl),
+    EXPORT(isdigit),
+    EXPORT(isgraph),
+    EXPORT(islower),
+    EXPORT(isprint),
+    EXPORT(ispunct),
+    EXPORT(isspace),
+    EXPORT(isupper),
+    EXPORT(isxdigit),
+    EXPORT(tolower),
+    EXPORT(toupper),
     /* setjmp.h */
     EXPORT(setjmp),
     EXPORT(longjmp),

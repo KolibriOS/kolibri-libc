@@ -15,19 +15,19 @@
 | `NDEBUG` |  | Yes |
 | `assert` | The assert macro returns a void, i.e. no value. | Not implemented |
 | **ctype.h** |  |  |
-| `isalnum()` | Is character alphanumeric (numbers + letters)? | Not implemented |
-| `isalpha()` | Is character alphabetic (letter)? | Not implemented |
-| `iscntrl()` | Is character a control character? | Not implemented |
-| `isdigit()` | Is character a decimal digit? | Not implemented |
-| `isgraph()` | Is character a printing character (not including space)? | Not implemented |
-| `islower()` | Is character lowercase | Not implemented |
-| `isprint()` | Is character a printing character (including space)? | Not implemented |
-| `ispunct()` | Is character a printing character except space, letter, digit? | Not implemented |
-| `isspace()` | Is character a space, formfeed, newline, cr, tab, vtab? | Not implemented |
-| `isupper()` | Is character an upper case letter? | Not implemented |
-| `isxdigit()` | Is character a hexadecimal digit? | Not implemented |
-| `tolower()` | Convert character to lower case. | Not implemented |
-| `toupper()` | Convert character to upper case. | Not implemented |
+| `isalnum()` | Is character alphanumeric (numbers + letters)? | Yes |
+| `isalpha()` | Is character alphabetic (letter)? | Yes |
+| `iscntrl()` | Is character a control character? | Yes |
+| `isdigit()` | Is character a decimal digit? | Yes |
+| `isgraph()` | Is character a printing character (not including space)? | Yes |
+| `islower()` | Is character lowercase | Yes |
+| `isprint()` | Is character a printing character (including space)? | Yes |
+| `ispunct()` | Is character a printing character except space, letter, digit? | Yes |
+| `isspace()` | Is character a space, formfeed, newline, cr, tab, vtab? | Yes |
+| `isupper()` | Is character an upper case letter? | Yes |
+| `isxdigit()` | Is character a hexadecimal digit? | Yes |
+| `tolower()` | Convert character to lower case. | Yes |
+| `toupper()` | Convert character to upper case. | Yes |
 | **locale.h** [^locale_h] |  |  |
 | `LC_ALL` | Sets everything. | No |
 | `LC_COLLATE` | Affects `strcoll()` and `strxfrm()` functions. | No |
