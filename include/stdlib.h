@@ -22,6 +22,7 @@
 #define max(a, b) ((a) > (b) ? (a) : (b))
 
 /* String conversion function */
+DLLAPI double atof(const char *nptr);
 DLLAPI int atoi(const char *nptr);
 DLLAPI long int atol(const char *nptr);
 DLLAPI double strtod(const char *nptr, char **endptr);

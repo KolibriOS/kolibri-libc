@@ -156,14 +156,14 @@
 | `ldiv_t` | This is the structure returned by the ldiv function. | Yes |
 | `size_t` | This is the unsigned integral type and is the result of the sizeof keyword. | Yes |
 | `wchar_t` | This is an integer type of the size of a wide character constant. | Yes |
-| `atof()` | Converts the string pointed to, by the argument str to a floating-point number (type double). | Not implemented |
-| `atoi()` | Converts the string pointed to, by the argument str to an integer (type int). | Not implemented |
-| `atol()` | Converts the string pointed to, by the argument str to a long integer (type long int). | Not implemented |
+| `atof()` | Converts the string pointed to, by the argument str to a floating-point number (type double). | Yes |
+| `atoi()` | Converts the string pointed to, by the argument str to an integer (type int). | Yes |
+| `atol()` | Converts the string pointed to, by the argument str to a long integer (type long int). | Yes |
 | `strtod()` | Converts the string pointed to, by the argument str to a floating-point number (type double). | Yes |
 | `strtol()` | Converts the string pointed to, by the argument str to a long integer (type long int). | Yes |
 | `strtoul()` | Converts the string pointed to, by the argument str to an unsigned long integer (type unsigned long int). | Yes |
-| `rand()` | Returns a pseudo-random number in the range of 0 to `RAND_MAX`. | Not implemented |
-| `srand()` | This function seeds the random number generator used by the function rand. | Not implemented |
+| `rand()` | Returns a pseudo-random number in the range of 0 to `RAND_MAX`. | Yes |
+| `srand()` | This function seeds the random number generator used by the function rand. | Yes |
 | `calloc()` | Allocates the requested memory and returns a pointer to it. | Not implemented |
 | `free()` | Deallocates the memory previously allocated by a call to calloc, malloc, or realloc. | Not implemented |
 | `malloc()` | Allocates the requested memory and returns a pointer to it. | Not implemented |
@@ -175,10 +175,10 @@
 | `system()` | The command specified by string is passed to the host environment to be executed by the command processor. | Not implemented |
 | `bsearch()` | Performs a binary search. | Not implemented |
 | `qsort()` | Sorts an array. | Not implemented |
-| `abs()` | Returns the absolute value of x. | Not implemented |
-| `div()` | Divides numerator by denominator. | Not implemented |
-| `labs()` | Returns the absolute value of x. | Not implemented |
-| `ldiv()` | Divides `long` numerator by denominator. | Not implemented |
+| `abs()` | Returns the absolute value of x. | Yes |
+| `div()` | Divides numerator by denominator. | Yes |
+| `labs()` | Returns the absolute value of x. | Yes |
+| `ldiv()` | Divides `long` numerator by denominator. | Yes |
 | `mblen()` | Returns the length of a multibyte character pointed to by the argument str. | Not implemented |
 | `mbtowc()` | Examines the multibyte character pointed to by the argument str. | Not implemented |
 | `wctomb()` | Examines the code which corresponds to a multibyte character given by the argument wchar. | Not implemented |

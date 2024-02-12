@@ -11,6 +11,7 @@ static int __errno;
 
 #include "ctype.c"
 #include "string/string.c"
+#include "stdlib/stdlib.c"
 #include "stdlib/strtod.c"
 #include "stdlib/strtol.c"
 #include "stdlib/strtoul.c"
@@ -46,9 +47,18 @@ ksys_dll_t EXPORTS[] = {
     EXPORT(setjmp),
     EXPORT(longjmp),
     /* stdlib.h */
+    EXPORT(atof),
+    EXPORT(atoi),
+    EXPORT(atol),
     EXPORT(strtod),
     EXPORT(strtol),
     EXPORT(strtoul),
+    EXPORT(rand),
+    EXPORT(srand),
+    EXPORT(abs),
+    EXPORT(div),
+    EXPORT(labs),
+    EXPORT(ldiv),
     /* string.h */
     EXPORT(memcpy),
     EXPORT(memmove),
