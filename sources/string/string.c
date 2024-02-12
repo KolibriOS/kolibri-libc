@@ -11,7 +11,7 @@
 
 #include "../unconst.h"
 
-DLLAPI void *memcpy(void *dest, const void *src, size_t n)
+void *memcpy(void *dest, const void *src, size_t n)
 {
     int d0, d1, d2;
     __asm__ __volatile__(
@@ -29,7 +29,7 @@ DLLAPI void *memcpy(void *dest, const void *src, size_t n)
     return (dest);
 }
 
-DLLAPI char *strcpy(char *to, const char *from)
+char *strcpy(char *to, const char *from)
 {
     int d0, d1, d2;
     __asm__ __volatile__(
@@ -43,7 +43,7 @@ DLLAPI char *strcpy(char *to, const char *from)
     return to;
 }
 
-DLLAPI char *strncpy(char *dst, const char *src, size_t n)
+char *strncpy(char *dst, const char *src, size_t n)
 {
     int d0, d1, d2, d3;
     __asm__ __volatile__(
@@ -62,7 +62,7 @@ DLLAPI char *strncpy(char *dst, const char *src, size_t n)
     return dst;
 }
 
-DLLAPI char *strcat(char *s, const char *append)
+char *strcat(char *s, const char *append)
 {
     int d0, d1, d2, d3;
     __asm__ __volatile__(
@@ -79,7 +79,7 @@ DLLAPI char *strcat(char *s, const char *append)
     return s;
 }
 
-DLLAPI char *strncat(char *dst, const char *src, size_t n)
+char *strncat(char *dst, const char *src, size_t n)
 {
     int d0, d1, d2, d3;
     __asm__ __volatile__(
@@ -115,7 +115,7 @@ size_t strlen(const char *str)
     return __res;
 }
 
-DLLAPI size_t strxfrm(char *dst, const char *src, size_t n)
+size_t strxfrm(char *dst, const char *src, size_t n)
 {
     size_t r = 0;
     int c;
@@ -136,7 +136,7 @@ DLLAPI size_t strxfrm(char *dst, const char *src, size_t n)
     return r;
 }
 
-DLLAPI int memcmp(const void *s1, const void *s2, size_t n)
+int memcmp(const void *s1, const void *s2, size_t n)
 {
     if (n != 0) {
         const unsigned char *p1 = s1, *p2 = s2;
@@ -148,7 +148,7 @@ DLLAPI int memcmp(const void *s1, const void *s2, size_t n)
     return 0;
 }
 
-DLLAPI int strcmp(const char *s1, const char *s2)
+int strcmp(const char *s1, const char *s2)
 {
     int d0, d1;
     register int res;
@@ -168,7 +168,7 @@ DLLAPI int strcmp(const char *s1, const char *s2)
     return res;
 }
 
-DLLAPI int strncmp(const char *s1, const char *s2, size_t n)
+int strncmp(const char *s1, const char *s2, size_t n)
 {
     register int res;
     int d0, d1, d2;
@@ -190,7 +190,7 @@ DLLAPI int strncmp(const char *s1, const char *s2, size_t n)
     return res;
 }
 
-DLLAPI void *memchr(const void *s, int c, size_t n)
+void *memchr(const void *s, int c, size_t n)
 {
     int d0;
     register void *res;
@@ -207,7 +207,7 @@ DLLAPI void *memchr(const void *s, int c, size_t n)
     return res;
 }
 
-DLLAPI char *strrchr(const char *s, int c)
+char *strrchr(const char *s, int c)
 {
     char cc = c;
     const char *sp = (char *)0;
@@ -221,7 +221,7 @@ DLLAPI char *strrchr(const char *s, int c)
     return unconst(sp, char *);
 }
 
-DLLAPI size_t strcspn(const char *s1, const char *s2)
+size_t strcspn(const char *s1, const char *s2)
 {
     const char *p, *spanp;
     char c, sc;
@@ -236,7 +236,7 @@ DLLAPI size_t strcspn(const char *s1, const char *s2)
     }
 }
 
-DLLAPI char *strpbrk(const char *s1, const char *s2)
+char *strpbrk(const char *s1, const char *s2)
 {
     const char *scanp;
     int c, sc;
@@ -249,7 +249,7 @@ DLLAPI char *strpbrk(const char *s1, const char *s2)
     return 0;
 }
 
-DLLAPI char *strchr(const char *s, int c)
+char *strchr(const char *s, int c)
 {
     char cc = c;
     const char *sp = (char *)0;
@@ -263,7 +263,7 @@ DLLAPI char *strchr(const char *s, int c)
     return unconst(sp, char *);
 }
 
-DLLAPI size_t strspn(const char *s1, const char *s2)
+size_t strspn(const char *s1, const char *s2)
 {
     const char *p = s1, *spanp;
     char c, sc;
@@ -276,7 +276,7 @@ cont:
     return (p - 1 - s1);
 }
 
-DLLAPI char *strstr(const char *s, const char *find)
+char *strstr(const char *s, const char *find)
 {
     char c, sc;
     size_t len;
@@ -294,7 +294,7 @@ DLLAPI char *strstr(const char *s, const char *find)
     return unconst(s, char *);
 }
 
-DLLAPI char *strtok(char *s, const char *delim)
+char *strtok(char *s, const char *delim)
 {
     const char *spanp;
     int c, sc;
@@ -340,7 +340,7 @@ cont:
     }
 }
 
-DLLAPI char *strerror(int err)
+char *strerror(int err)
 {
     char *msg;
     switch (err) {

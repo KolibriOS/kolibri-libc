@@ -16,8 +16,7 @@
  * Ignores `locale' stuff.  Assumes that the upper and lower case
  * alphabets and digits are each contiguous.
  */
-unsigned long
-strtoul(const char *nptr, char **endptr, int base)
+unsigned long strtoul(const char *nptr, char **endptr, int base)
 {
     const char *s = nptr;
     unsigned long acc;
