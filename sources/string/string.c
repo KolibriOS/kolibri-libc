@@ -169,11 +169,6 @@ DLLAPI int strcmp(const char *s1, const char *s2)
     return res;
 }
 
-DLLAPI int strcoll(const char *s1, const char *s2)
-{
-    return strcmp(s1, s2);
-}
-
 DLLAPI int strncmp(const char *s1, const char *s2, size_t n)
 {
     register int res;

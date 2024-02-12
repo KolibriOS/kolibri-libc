@@ -31,7 +31,6 @@ ksys_dll_t EXPORTS[] = {
     EXPORT(strxfrm),
     EXPORT(memcmp),
     EXPORT(strcmp),
-    EXPORT(strcoll),
     EXPORT(strncmp),
     EXPORT(memchr),
     EXPORT(strchr),

@@ -23,7 +23,7 @@ DLLAPI size_t strxfrm(char *dest, const char *src, size_t n);
 /* Comparison */
 DLLAPI int memcmp(const void *a, const void *b, size_t n);
 DLLAPI int strcmp(const char *s1, const char *s2);
-DLLAPI int strcoll(const char *s1, const char *s2);
+#define strcoll(s1, s2) strcmp(s1, s2)
 DLLAPI int strncmp(const char *s1, const char *s2, size_t n);
 
 /* Search */
