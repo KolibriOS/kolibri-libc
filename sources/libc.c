@@ -4,6 +4,7 @@
  */
 
 #include <setjmp.h>
+#include <stddef.h>
 #include <sys/ksys.h>
 
 #include "ctype.c"
@@ -14,7 +15,8 @@
 
 __asm__(
     ".include \"setjmp.s\"\n\t"
-    ".include \"string/string.s\"\n\t"
+    ".include \"string/memmove.s\"\n\t"
+    ".include \"string/memset.s\"\n\t"
 );
 
 ksys_dll_t EXPORTS[] = {

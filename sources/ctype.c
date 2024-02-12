@@ -6,7 +6,7 @@
 
 #include <ctype.h>
 
-const char __ctype[256] = {
+static const char __ctype[256] = {
     _C, _C, _C, _C, _C, _C, _C, _C,
     _C, _C | _S, _C | _S, _C | _S, _C | _S, _C | _S, _C, _C,
     _C, _C, _C, _C, _C, _C, _C, _C,
