@@ -2,17 +2,17 @@
 | Name | Description | Support |
 |--|--|--|
 | **errno.h** |  |  |
-| `EDOM` | Results from a parameter outside a function's domain. | Not implemented |
-| `ERANGE` | Results from a result outside a function's range. | Not implemented |
-| `errno` | Macro set to indicate what went wrong. | Not implemented |
+| `EDOM`   | Results from a parameter outside a function's domain. | Yes |
+| `ERANGE` | Results from a result outside a function's range. | Yes |
+| `errno`  | Macro set to indicate what went wrong. | Yes |
 | **stddef.h** |  |  |
-| `NULL` | A macro that expands to a null pointer constant. | Not implemented |
-| `offsetof` | A functional macro that is used to determine the byte offset of the indicated member field in the specified structure type. | Not implemented |
-| `ptrdiff_t` | This is the signed integral type and is the result of subtracting two pointers. | Not implemented |
-| `size_t` | This is the unsigned integral type and is the result of the `sizeof` keyword. |
-| `wchar_t` | This is an integral type of the size of a wide character constant. | Not implemented |
+| `NULL`     | A macro that expands to a null pointer constant. | Yes |
+| `offsetof` | A functional macro that is used to determine the byte offset of the indicated member field in the specified structure type. | Yes |
+| `ptrdiff_t` | This is the signed integral type and is the result of subtracting two pointers. | Yes |
+| `size_t` | This is the unsigned integral type and is the result of the `sizeof` keyword. | Yes |
+| `wchar_t` | This is an integral type of the size of a wide character constant. | Yes |
 | **assert.h** |  |  |
-| `NDEBUG` |  | Not implemented |
+| `NDEBUG` |  | Yes |
 | `assert` | The assert macro returns a void, i.e. no value. | Not implemented |
 | **ctype.h** |  |  |
 | `isalnum()` | Is character alphanumeric (numbers + letters)? | Not implemented |
@@ -28,17 +28,17 @@
 | `isxdigit()` | Is character a hexadecimal digit? | Not implemented |
 | `tolower()` | Convert character to lower case. | Not implemented |
 | `toupper()` | Convert character to upper case. | Not implemented |
-| **locale.h** |  |  |
-| `LC_ALL` | Sets everything. | Not implemented |
-| `LC_COLLATE` | Affects `strcoll()` and `strxfrm()` functions. | Not implemented |
-| `LC_CTYPE` | Affects all character functions. | Not implemented |
-| `LC_MONETARY` | Affects the monetary information provided by localeconv function. | Not implemented |
-| `LC_NUMERIC` | Affects decimal-point formatting and the information provided by `localeconv()` function. | Not implemented |
-| `LC_TIME` | Affects the `strftime()` function. | Not implemented |
-| `NULL` | A macro that expands to a null pointer constant. | Not implemented |
-| `lconv` | Structure which contains members related to the formatting of numeric values.. | Not implemented |
-| `setlocale()` | Sets or reads location dependent information. | Not implemented |
-| `localeconv()` | Sets or reads location dependent information. | Not implemented |
+| **locale.h** [^locale_h] |  |  |
+| `LC_ALL` | Sets everything. | No |
+| `LC_COLLATE` | Affects `strcoll()` and `strxfrm()` functions. | No |
+| `LC_CTYPE` | Affects all character functions. | No |
+| `LC_MONETARY` | Affects the monetary information provided by localeconv function. | No |
+| `LC_NUMERIC` | Affects decimal-point formatting and the information provided by `localeconv()` function. | No |
+| `LC_TIME` | Affects the `strftime()` function. | No |
+| `NULL` | A macro that expands to a null pointer constant. | No |
+| `lconv` | Structure which contains members related to the formatting of numeric values.. | No |
+| `setlocale()` | Sets or reads location dependent information. | No |
+| `localeconv()` | Sets or reads location dependent information. | No |
 | **math.h** |  |  |
 | `HUGE_VAL` | This macro is used when the result of a function may not be representable as a floating point number. | Not implemented |
 | `acos()` | Returns the arc cosine of x in radians. | Not implemented |
@@ -64,43 +64,43 @@
 | `floor()` | Returns the largest integer value less than or equal to x. | Not implemented |
 | `fmod()` | Returns the remainder of x divided by y. | Not implemented |
 | **setjmp.h** |  |  |
-| `jmp_buf` | This is an array type used for holding information for macro `setjmp` and function `longjmp()`. | Not implemented |
-| `setjmp` | This macro saves the current environment into the variable environment for later use by the function `longjmp()`. | Not implemented |
-| `longjmp()` | This function restores the environment saved by the most recent call to setjmp() macro in the same invocation of the program with the corresponding jmp_buf argument. | Not implemented |
-| **signal.h** |  |  |
-| `sig_atomic_t` | This is of int type and is used as a variable in a signal handler.  | Not implemented |
-| `SIG_DFL` | Default signal handler. | Not implemented |
-| `SIG_ERR` | Represents a signal error. | Not implemented |
-| `SIG_IGN` | Signal ignore. | Not implemented |
-| `SIGABRT` | Abnormal program termination. | Not implemented |
-| `SIGFPE` | Floating-point error like division by zero. | Not implemented |
-| `SIGILL` | Illegal operation. | Not implemented |
-| `SIGINT` | Interrupt signal such as ctrl-C. | Not implemented |
-| `SIGSEGV` | Invalid access to storage like segment violation. | Not implemented |
-| `SIGTERM` | Termination request. | Not implemented |
-| `signal()` | This function sets a function to handle signal i.e. a signal handler. | Not implemented |
-| `raise()` | This function causes signal sig to be generated. The sig argument is compatible with the SIG macros. | Not implemented |
+| `jmp_buf` | This is an array type used for holding information for macro `setjmp` and function `longjmp()`. | Yes |
+| `setjmp` | This macro saves the current environment into the variable environment for later use by the function `longjmp()`. | Yes |
+| `longjmp()` | This function restores the environment saved by the most recent call to setjmp() macro in the same invocation of the program with the corresponding jmp_buf argument. | Yes |
+| **signal.h**[^signal_h] |  |  |
+| `sig_atomic_t` | This is of int type and is used as a variable in a signal handler.  | No |
+| `SIG_DFL` | Default signal handler. | No |
+| `SIG_ERR` | Represents a signal error. | No |
+| `SIG_IGN` | Signal ignore. | No |
+| `SIGABRT` | Abnormal program termination. | No |
+| `SIGFPE` | Floating-point error like division by zero. | No|
+| `SIGILL` | Illegal operation. | No |
+| `SIGINT` | Interrupt signal such as ctrl-C. | No |
+| `SIGSEGV` | Invalid access to storage like segment violation. | No |
+| `SIGTERM` | Termination request. | No |
+| `signal()` | This function sets a function to handle signal i.e. a signal handler. | No |
+| `raise()` | This function causes signal sig to be generated. The sig argument is compatible with the SIG macros. | No |
 | **stdarg.h** |  |  |
-| `va_list` | This is a type suitable for holding information needed by the three macros `va_start()`, `va_arg()` and `va_end()`. | Not implemented |
-| `va_start` | This macro initializes ap variable to be used with the `va_arg` and `va_end` macros. | Not implemented |
-| `va_arg` | This macro retrieves the next argument in the parameter list of the function with type type. | Not implemented |
-| `va_end` | This macro allows a function with variable arguments which used the `va_start` macro to return. | Not implemented |
+| `va_list` | This is a type suitable for holding information needed by the three macros `va_start()`, `va_arg()` and `va_end()`. | Yes |
+| `va_start` | This macro initializes ap variable to be used with the `va_arg` and `va_end` macros. | Yes |
+| `va_arg` | This macro retrieves the next argument in the parameter list of the function with type type. | Yes |
+| `va_end` | This macro allows a function with variable arguments which used the `va_start` macro to return. | Yes |
 | **stdio.h** |  |  |
-| `_IOFBF` | Macros which expand to integral constant expressions with distinct values. | Not implemented |
-| `_IOLBF` | Macros which expand to integral constant expressions with distinct values. | Not implemented |
-| `_IONBF` | Macros which expand to integral constant expressions with distinct values. | Not implemented |
+| `_IOFBF` | Macros which expand to integral constant expressions with distinct values. | Yes |
+| `_IOLBF` | Macros which expand to integral constant expressions with distinct values. | Yes |
+| `_IONBF` | Macros which expand to integral constant expressions with distinct values. | Yes |
 | `BUFSIZ` | This macro is an integer, which represents the size of the buffer used by the `setbuf()` function. | Not implemented |
-| `EOF` | This macro is a negative integer, which indicates that the end-of-file has been reached. | Not implemented |
+| `EOF` | This macro is a negative integer, which indicates that the end-of-file has been reached. | Yes |
 | `FILE` | This is an object type suitable for storing information for a file stream. | Not implemented |
 | `FILENAME_MAX` | This macro is an integer, which represents the longest length of a char array suitable for holding the longest possible filename. | Not implemented |
 | `FOPEN_MAX` | This macro is an integer, which represents the maximum number of files that the system can guarantee to be opened simultaneously. | Not implemented |
 | `fpos_t` | This is an object type suitable for storing any position in a file. | Not implemented |
 | `L_tmpnam` | Represents the longest length of a char array suitable for holding the longest possible temporary filename created by the `tmpnam()` function. | Not implemented |
-| `NULL` | This macro is the value of a null pointer constant. | Not implemented |
+| `NULL` | This macro is the value of a null pointer constant. | Yes |
 | `SEEK_CUR` | Macros used in the fseek function to locate different positions in a file. | Not implemented |
 | `SEEK_END` | Macros used in the fseek function to locate different positions in a file. | Not implemented |
 | `SEEK_SET` | Macros used in the fseek function to locate different positions in a file. | Not implemented |
-| `size_t` | This is the unsigned integral type and is the result of the `sizeof` keyword. | Not implemented |
+| `size_t` | This is the unsigned integral type and is the result of the `sizeof` keyword. | Yes |
 | `stderr` | Macros pointer to `FILE` types which correspond to the standard error, standard input, and standard output streams. | Not implemented |
 | `stdin` | Macros pointer to `FILE` types which correspond to the standard error, standard input, and standard output streams. | Not implemented |
 | `stdout` | Macros pointer to `FILE` types which correspond to the standard error, standard input, and standard output streams. | Not implemented |
@@ -147,15 +147,15 @@
 | `ferror()` | Tests the error indicator for the given stream. | Not implemented |
 | `perror()` | Prints a descriptive error message to stderr. First the string str is printed followed by a colon and then a space. | Not implemented |
 | **stdlib.h** |  |  |
-| `EXIT_FAILURE` | This is the value for the exit function to return in case of failure. | Not implemented |
-| `EXIT_SUCCESS` | This is the value for the exit function to return in case of success. | Not implemented |
-| `MB_CUR_MAX` | This macro is the maximum number of bytes in a multi-byte character set which cannot be larger than `MB_LEN_MAX`. | Not implemented |
-| `NULL` | This macro is the value of a null pointer constant. | Not implemented |
-| `RAND_MAX` | This macro is the maximum value returned by the `rand()` function. | Not implemented |
-| `div_t` | This is the structure returned by the div function. | Not implemented |
-| `ldiv_t` | This is the structure returned by the ldiv function. | Not implemented |
-| `size_t` | This is the unsigned integral type and is the result of the sizeof keyword. | Not implemented |
-| `wchar_t` | This is an integer type of the size of a wide character constant. | Not implemented |
+| `EXIT_FAILURE` | This is the value for the exit function to return in case of failure. | Yes |
+| `EXIT_SUCCESS` | This is the value for the exit function to return in case of success. | Yes |
+| `MB_CUR_MAX` | This macro is the maximum number of bytes in a multi-byte character set which cannot be larger than `MB_LEN_MAX`. | Yes |
+| `NULL` | This macro is the value of a null pointer constant. | Yes |
+| `RAND_MAX` | This macro is the maximum value returned by the `rand()` function. | Yes |
+| `div_t` | This is the structure returned by the div function. | Yes |
+| `ldiv_t` | This is the structure returned by the ldiv function. | Yes |
+| `size_t` | This is the unsigned integral type and is the result of the sizeof keyword. | Yes |
+| `wchar_t` | This is an integer type of the size of a wide character constant. | Yes |
 | `atof()` | Converts the string pointed to, by the argument str to a floating-point number (type double). | Not implemented |
 | `atoi()` | Converts the string pointed to, by the argument str to an integer (type int). | Not implemented |
 | `atol()` | Converts the string pointed to, by the argument str to a long integer (type long int). | Not implemented |
@@ -185,37 +185,37 @@
 | `mbstowcs()` | Converts the string of multibyte characters pointed to by the argument str to the array pointed to by pwcs. | Not implemented |
 | `wcstombs()` | Converts the codes stored in the array pwcs to multibyte characters and stores them in the string str. | Not implemented |
 | **string.h** |  |  |
-| `NULL` | This macro is the value of a null pointer constant. | Not implemented |
-| `size_t` | This is the unsigned integral type and is the result of the `sizeof` keyword. | Not implemented |
-| `memcpy()` | Copies n characters from src to dest. | Not implemented |
-| `memmove()` | Another function to copy n characters from str2 to str1. | Not implemented |
-| `strcpy()` | Copies the string pointed to, from source to destination. | Not implemented |
-| `strncpy()` | Copies up to n characters from the string pointed to, from source to destination. | Not implemented |
-| `strcat()` | Appends the string pointed to, by src to the end of the string pointed to by dest. | Not implemented |
-| `strncat()` | Appends the string pointed to, by src to the end of the string pointed to, by dest up to n characters long. | Not implemented |
-| `memcmp()` | Compares the first n bytes of str1 and str2. | Not implemented |
-| `strcmp()` | Compares the string pointed to, by str1 to the string pointed to by str2. | Not implemented |
-| `strcoll()` | Compares string str1 to str2. The result is dependent on the `LC_COLLATE` setting of the location. | Not implemented |
-| `strncmp()` | Compares at most the first n bytes of str1 and str2. | Not implemented |
-| `strxfrm()` | Transforms the first n characters of the string src into current locale and places them in the string dest. | Not implemented |
-| `memchr()` | Searches for the first occurrence of the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str. | Not implemented |
-| `strchr()` | Searches for the first occurrence of the character c (an unsigned char) in the string pointed to, by the argument str. | Not implemented |
-| `strcspn()` | Calculates the length of the initial segment of str1 which consists entirely of characters not in str2. | Not implemented |
-| `strpbrk()` | Finds the first character in the string str1 that matches any character specified in str2. | Not implemented |
-| `strrchr()` | Searches for the last occurrence of the character c (an unsigned char) in the string pointed to by the argument str. | Not implemented |
-| `strspn()` | Calculates the length of the initial segment of str1 which consists entirely of characters in str2. | Not implemented |
-| `strstr()` | Finds the first occurrence of the entire string needle (not including the terminating null character) which appears in the string haystack. | Not implemented |
-| `strtok()` | Breaks string str into a series of tokens separated by delim. | Not implemented |
-| `memset()` | Copies the character c (an unsigned char) to the first n characters of the string pointed to, by the argument str. | Not implemented |
-| `strerror()` | Searches an internal array for the error number errnum and returns a pointer to an error message string. | Not implemented |
+| `NULL` | This macro is the value of a null pointer constant. | Yes |
+| `size_t` | This is the unsigned integral type and is the result of the `sizeof` keyword. | Yes |
+| `memcpy()` | Copies n characters from src to dest. | Yes |
+| `memmove()` | Another function to copy n characters from str2 to str1. | Yes |
+| `strcpy()` | Copies the string pointed to, from source to destination. | Yes |
+| `strncpy()` | Copies up to n characters from the string pointed to, from source to destination. | Yes |
+| `strcat()` | Appends the string pointed to, by src to the end of the string pointed to by dest. | Yes |
+| `strncat()` | Appends the string pointed to, by src to the end of the string pointed to, by dest up to n characters long. | Yes |
+| `memcmp()` | Compares the first n bytes of str1 and str2. | Yes |
+| `strcmp()` | Compares the string pointed to, by str1 to the string pointed to by str2. | Yes |
+| `strcoll()` | Compares string str1 to str2. The result is dependent on the `LC_COLLATE` setting of the location. | Yes[^strcoll] |
+| `strncmp()` | Compares at most the first n bytes of str1 and str2. | Yes |
+| `strxfrm()` | Transforms the first n characters of the string src into current locale and places them in the string dest. | Yes |
+| `memchr()` | Searches for the first occurrence of the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str. | Yes |
+| `strchr()` | Searches for the first occurrence of the character c (an unsigned char) in the string pointed to, by the argument str. | Yes |
+| `strcspn()` | Calculates the length of the initial segment of str1 which consists entirely of characters not in str2. | Yes |
+| `strpbrk()` | Finds the first character in the string str1 that matches any character specified in str2. | Yes |
+| `strrchr()` | Searches for the last occurrence of the character c (an unsigned char) in the string pointed to by the argument str. | Yes |
+| `strspn()` | Calculates the length of the initial segment of str1 which consists entirely of characters in str2. | Yes |
+| `strstr()` | Finds the first occurrence of the entire string needle (not including the terminating null character) which appears in the string haystack. | Yes |
+| `strtok()` | Breaks string str into a series of tokens separated by delim. | Yes |
+| `memset()` | Copies the character c (an unsigned char) to the first n characters of the string pointed to, by the argument str. | Yes |
+| `strerror()` | Searches an internal array for the error number errnum and returns a pointer to an error message string. | Yes[^strerror] |
 | `strlen()` | Computes the length of the string str up to but not including the terminating null character. | Not implemented |
 | **time.h** |  |  |
-| `CLK_TCK` | This macro represents the number of processor clocks per second. | Not implemented |
-| `NULL` | This macro is the value of a null pointer constant. | Not implemented |
-| `clock_t` | This is a type suitable for storing the processor time. | Not implemented |
-| `time_t` | This is a type suitable for storing the calendar time. | Not implemented |
-| `size_t` | This is the unsigned integral type and is the result of the `sizeof` keyword. | Not implemented |
-| `tm` | This is a structure used to hold the time and date. | Not implemented |
+| `CLK_TCK` | This macro represents the number of processor clocks per second. | Yes |
+| `NULL` | This macro is the value of a null pointer constant. | Yes |
+| `clock_t` | This is a type suitable for storing the processor time. | Yes |
+| `time_t` | This is a type suitable for storing the calendar time. | Yes |
+| `size_t` | This is the unsigned integral type and is the result of the `sizeof` keyword. | Yes |
+| `tm` | This is a structure used to hold the time and date. | Yes |
 | `clock()` | Returns the processor clock time used since the beginning of an implementation defined era (normally the beginning of the program). | Not implemented |
 | `difftime()` | Returns the difference of seconds between time1 and time2 (time1-time2). | Not implemented |
 | `mktime()` | Converts the structure pointed to by timeptr into a `time_t` value according to the local time zone. | Not implemented |
@@ -244,3 +244,10 @@
 | `p` | The argument shall be a pointer to void . The value of the pointer is converted to a sequence of printable characters, in an implementation-defined manner. | Not implemented |
 | `n` |  The argument shall be a pointer to an integer into which is written the number of characters written to the output stream so far by this call to fprintf . No argument is converted. | Not implemented |
 | `%` | A % is written. No argument is converted. The complete conversion specification shall be %%. | Not implemented |
+
+
+[^locale_h]: `locale.h` is not supported due to redundancy and further complexity of the code.
+[^signal_h]: `signal.h` is not supported. KolibriOS does not support any signals.
+[^strcoll]: `locale.h` is not supported, but does not depend on `LC_COLLATE`, alias ​​to `strcmp()`.
+[^strerror]: Implemented, what is in the ANSI C, but needs to be implemented for KolibriOS errors.
+
