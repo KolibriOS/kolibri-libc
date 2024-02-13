@@ -49,7 +49,7 @@ long atol(const char *s)
     return neg ? n : -n;
 }
 
-static unsigned long seed;
+static unsigned long long seed;
 
 void srand(unsigned s)
 {
