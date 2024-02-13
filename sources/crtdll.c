@@ -15,3 +15,8 @@ __attribute__((noreturn)) void __start(void)
     libc_init();
     __builtin_unreachable();
 }
+
+void __main(void)
+{
+    /* STUB: The implementation is in libgcc, but it is not needed. */
+}
