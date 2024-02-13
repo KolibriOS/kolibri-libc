@@ -38,4 +38,8 @@ typedef __SIZE_TYPE__ uintptr_t;
 #define __fastcall __attribute__((fastcall))
 #endif
 
+#ifndef __packed
+#define __packed __attribute__((packed))
+#endif
+
 #endif // _STDDEF_H_
