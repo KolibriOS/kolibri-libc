@@ -41,8 +41,8 @@ typedef struct {
 } pe_import_descriptor_t;
 
 typedef struct {
-    uint16_t Hint;
-    char Name[1];
+    uint16_t hint;
+    char name[1];
 } pe_import_by_name_t;
 
 #define IMAGE_ORDINAL_FLAG 0x80000000
@@ -73,14 +73,14 @@ __attribute__((noreturn)) static void libc_init(void)
 
         while (ilt->address_of_data) {
             pe_import_by_name_t *record = (pe_import_by_name_t *)ilt->address_of_data;
-            uintptr_t func_ptr = (uintptr_t)_ksys_dlsym(coff_dll, record->Name);
+            uintptr_t func_ptr = (uintptr_t)_ksys_dlsym(coff_dll, record->name);
 
             if (func_ptr) {
                 iat->function = func_ptr;
             } else {
                 /* TODO: Replace to sprintf() */
                 _ksys_debug_puts("Unresolved import '");
-                _ksys_debug_puts(record->Name);
+                _ksys_debug_puts(record->name);
                 _ksys_debug_puts("' from ");
                 _ksys_debug_puts(libpath);
                 _ksys_debug_putc('\n');
