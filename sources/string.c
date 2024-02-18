@@ -9,7 +9,7 @@
 #include <string.h>
 #include <errno.h>
 
-#include "../unconst.h"
+#include "unconst.h"
 
 void *memcpy(void *dest, const void *src, size_t n)
 {

@@ -10,19 +10,15 @@ static int __errno;
 #include <sys/ksys.h>
 
 #include "ctype.c"
-#include "string/string.c"
-#include "stdlib/stdlib.c"
-#include "stdlib/strtod.c"
-#include "stdlib/strtol.c"
-#include "stdlib/strtoul.c"
+#include "string.c"
+#include "stdlib.c"
 
 #undef EXPORT
 #define EXPORT(sym) {#sym, &sym}
 
 __asm__(
     ".include \"setjmp.s\"\n\t"
-    ".include \"string/memmove.s\"\n\t"
-    ".include \"string/memset.s\"\n\t"
+    ".include \"string.s\"\n\t"
 );
 
 ksys_dll_t EXPORTS[] = {

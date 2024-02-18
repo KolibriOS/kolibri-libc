@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 1995 DJ Delorie, see COPYING.DJ for details
  *
  * Copyright (C) KolibriOS team 2024. All rights reserved.
@@ -30,7 +30,7 @@ memset:
     jmp     memset.L2
 
     # Handle any cruft necessary to get %edi long-aligned.
-memset.L1: 
+memset.L1:
     stosb
     decl    %ecx
 memset.L2:
@@ -51,6 +51,34 @@ memset.L3:
     rep
     stosb
     popl    %edi
+    movl    8(%ebp), %eax
+    leave
+    ret
+
+memmove:
+    pushl   %ebp
+    movl    %esp, %ebp
+    pushl   %esi
+    pushl   %edi
+    movl    8(%ebp), %edi
+    movl    12(%ebp), %esi
+    movl    16(%ebp), %ecx
+    jecxz   memmove.L2
+    cld
+    cmpl    %esi, %edi
+    jb      memmove.L3
+    std
+    addl    %ecx, %esi
+    addl    %ecx, %edi
+    decl    %esi
+    decl    %edi
+memmove.L3:
+    rep
+    movsb
+memmove.L2:
+    cld
+    popl    %edi
+    popl    %esi
     movl    8(%ebp), %eax
     leave
     ret
