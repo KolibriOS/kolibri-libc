@@ -15,7 +15,7 @@ typedef struct {
     int memsize;
     int stacktop;
     char *cmdline;
-    char *ath;
+    char *path;
     int __subsystem__;
     void *__idata_start;
     void *__idata_end;
@@ -45,28 +45,29 @@ typedef struct {
     char name[1];
 } pe_import_by_name_t;
 
-#define IMAGE_ORDINAL_FLAG 0x80000000
-#define LIBPATH_MAX        1024
-#define LIBPATH_LEN        9
+#define LIBPATH_MAX 256
+
+const char libpath[] = "/sys/lib/";
 
 __attribute__((noreturn)) static void libc_init(void)
 {
     kos_app_header_t *app_hdr = (kos_app_header_t *)0;
     pe_import_descriptor_t *imp_desc = app_hdr->__idata_start;
 
-    char libpath[LIBPATH_MAX] = "/sys/lib/";
-
-    pe_thunk_data32_t *iat = (pe_thunk_data32_t *)imp_desc->first_thunk;
-    pe_thunk_data32_t *ilt = (pe_thunk_data32_t *)imp_desc->original_first_thunk;
+    char path[LIBPATH_MAX];
+    strcpy(path, libpath);
 
     while (imp_desc->name && !imp_desc->time_date_stamp) {
-        strncpy(libpath + LIBPATH_LEN, imp_desc->name, LIBPATH_MAX - LIBPATH_LEN - 1);
+        pe_thunk_data32_t *iat = (pe_thunk_data32_t *)imp_desc->first_thunk;
+        pe_thunk_data32_t *ilt = (pe_thunk_data32_t *)imp_desc->original_first_thunk;
 
-        ksys_dll_t *coff_dll = _ksys_dlopen(libpath);
+        strncpy(path + sizeof(libpath) - 1, imp_desc->name, LIBPATH_MAX - sizeof(libpath) - 1);
+
+        ksys_dll_t *coff_dll = _ksys_dlopen(path);
         if (!coff_dll) {
             /* TODO: Replace to sprintf() */
             _ksys_debug_puts("Unable to load: ");
-            _ksys_debug_puts(libpath);
+            _ksys_debug_puts(path);
             _ksys_debug_putc('\n');
             goto exit;
         }
@@ -77,7 +78,6 @@ __attribute__((noreturn)) static void libc_init(void)
 
             if (func_ptr) {
                 iat->function = func_ptr;
-            } else {
                 /* TODO: Replace to sprintf() */
                 _ksys_debug_puts("Unresolved import '");
                 _ksys_debug_puts(record->name);
