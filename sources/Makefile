@@ -3,8 +3,8 @@ STRIP = i686-w64-mingw32-strip
 DLLTOOL = i686-w64-mingw32-dlltool
 KPACK = kpack
 
-CFLAGS = -I../include -D_BUILD_LIBC -nostdinc -c -O1 \
-		 -fno-builtin -fno-ident -ffreestanding -fno-leading-underscore \
+CFLAGS = -I../include -D_BUILD_LIBC -nostdinc -c -Os \
+         -fno-builtin -fno-ident -ffreestanding -fno-leading-underscore \
          -fno-stack-check -fno-stack-protector -mno-stack-arg-probe -fno-exceptions \
          -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks
 
