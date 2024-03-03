@@ -44,6 +44,7 @@ SECTIONS
         ___RUNTIME_PSEUDO_RELOC_LIST_END__ = .;
         __RUNTIME_PSEUDO_RELOC_LIST_END__ = .;
    }
+
    .CRT ALIGN(16) :
    {
          ___crt_xc_start__ = . ;
@@ -76,15 +77,7 @@ SECTIONS
         *(.data_cygwin_nocopy)
         ___iend = . ;
    }
-/*
-   .eh_frame BLOCK(16) :
-   {
-        PROVIDE (___EH_FRAME_BEGIN__ = .) ;
-        *(.eh_frame*)
-          ___FRAME_END__ = . ;
-     LONG(0);
-   }
-*/
+
    .idata ALIGN(16):
    {
       __idata_start = .;
