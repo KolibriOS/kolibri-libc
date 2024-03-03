@@ -1,0 +1,6 @@
+LIBRARY console.obj
+
+EXPORTS
+con_init@20
+con_exit@4
+con_write_asciiz@4

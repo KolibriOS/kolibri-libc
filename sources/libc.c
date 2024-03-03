@@ -13,6 +13,8 @@ static int __errno;
 #include "string.c"
 #include "stdlib.c"
 
+#include "libc_init.c"
+
 #undef EXPORT
 #define EXPORT(sym) {#sym, &sym}
 
@@ -22,6 +24,7 @@ __asm__(
 );
 
 ksys_dll_t EXPORTS[] = {
+    EXPORT(libc_init),
     /* errno.h */
     EXPORT(__errno),
     /* ctype.h */
@@ -63,6 +66,7 @@ ksys_dll_t EXPORTS[] = {
     EXPORT(strncpy),
     EXPORT(strcat),
     EXPORT(strncat),
+    EXPORT(strlen),
     EXPORT(strxfrm),
     EXPORT(memcmp),
     EXPORT(strcmp),
